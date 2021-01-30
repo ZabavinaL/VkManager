@@ -2,7 +2,6 @@ package ru.netology.domain;
 
 // Информация о посте
 public class Post {
-
     public int getPostId() {
         return postId;
     }
@@ -91,6 +90,30 @@ public class Post {
         isFavorite = favorite;
     }
 
+    public boolean isCanPin() {
+        return canPin;
+    }
+
+    public void setCanPin(boolean canPin) {
+        this.canPin = canPin;
+    }
+
+    public boolean isCanDelete() {
+        return canDelete;
+    }
+
+    public void setCanDelete(boolean canDelete) {
+        this.canDelete = canDelete;
+    }
+
+    public boolean isCanEdit() {
+        return canEdit;
+    }
+
+    public void setCanEdit(boolean canEdit) {
+        this.canEdit = canEdit;
+    }
+
     public int getRepostsCount() {
         return repostsCount;
     }
@@ -107,23 +130,30 @@ public class Post {
         this.userReposted = userReposted;
     }
 
-    public String getTypeGeo() {
-        return typeGeo;
+    public GeoInfo getGeoInfo() {
+        return geoInfo;
     }
 
-    public void setTypeGeo(String typeGeo) {
-        this.typeGeo = typeGeo;
+    public void setGeoInfo(GeoInfo geoInfo) {
+        this.geoInfo = geoInfo;
     }
 
-    public String getCoordinatesGeo() {
-        return coordinatesGeo;
+    public CommentsInfo getCommentsInfo() {
+        return commentsInfo;
     }
 
-    public void setCoordinatesGeo(String coordinatesGeo) {
-        this.coordinatesGeo = coordinatesGeo;
+    public void setCommentsInfo(CommentsInfo commentsInfo) {
+        this.commentsInfo = commentsInfo;
     }
 
-    //информация о записи
+    public LikesInfo getLikesInfo() {
+        return likesInfo;
+    }
+
+    public void setLikesInfo(LikesInfo likesInfo) {
+        this.likesInfo = likesInfo;
+    }
+
     private int postId; // идентификатор записи
     private String postType; // тип записи со значениями (post, copy, reply, postpone, suggest)
     private String text; // текст записи
@@ -135,13 +165,12 @@ public class Post {
     private int replyPostId; // идентификатор записи, в ответ на которую, была оставлена текущая
     private boolean isPinned; // информация о том, что запись закреплена
     private boolean isFavorite; // запись добавлена в закладки у текущего пользователя
-
-
-    // информация о репостах записи («Рассказать друзьям»)
+    private boolean canPin; // информация о том, может ли текущий пользователь закрепить запись
+    private boolean canDelete; // информация о том, может ли текущий пользователь удалить запись
+    private boolean canEdit; // информация о том, может ли текущий пользователь редактировать запись
     private int repostsCount; // число пользователей, скопировавших запись
     private boolean userReposted; // наличие репоста от текущего пользователя
-
-    // информация о местоположении
-    private String typeGeo; // тип места
-    private String coordinatesGeo; // координаты места
+    private GeoInfo geoInfo;
+    private CommentsInfo commentsInfo;
+    private LikesInfo likesInfo;
 }
